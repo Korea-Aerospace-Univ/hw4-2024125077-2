@@ -9,12 +9,12 @@ int main(void)
     do {
         scanf("%d", &j);
         if (i > j) printf("%d<?\n", j);
-        if (i < j) printf("%d>?\n", j);
+        else if (i < j) printf("%d>?\n", j);
+        else printf("%d==?\n", j);
         
         k++;
     } while (i != j);
     
-    printf("%d==?\n", j);
     printf("%d", k);
     
     return 0;
