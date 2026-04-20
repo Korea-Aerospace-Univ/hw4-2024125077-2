@@ -14,24 +14,24 @@ int main(void)
     int maxeng = 0;     // 영어가 연속되는 값이 최대일 때 수를 저장하는 변수 초기화
     
     int i = 0;          // 실행 횟수 초기화
-    char a;
-    while ((a = getchar()) != '\n') {
-        if (a>='a' && a<='z') {     // 소문자 영어 일 때
-            counteng++;             // 소문자 영어 세기 추가
-            countnum = 0;
-            if (counteng>maxeng) maxeng = counteng;
+    char a;             // 입력받는 문자를 저장할 변수
+    while ((a = getchar()) != '\n') {                        // 엔터 입력될 때까지 한 글자씩 받기
+        if (a>='a' && a<='z') {                              // 소문자 영어 일 때
+            counteng++;                                      // 소문자 영어 세기 추가
+            countnum = 0;                                    // 숫자 연속이 끊겼으므로 숫자 연속 카운트 초기화
+            if (counteng>maxeng) maxeng = counteng;          // 연속 영어 수가 현재 영어 연속 최댓값보다 크면 갱신
         }
-        if(a>='0' && a<='9') {
-            countnum++;
-            counteng = 0;
-            if (countnum>maxnum) maxnum = countnum;
+        if(a>='0' && a<='9') {                               // 숫자일 때
+            countnum++;                                      // 숫자 세기 추가
+            counteng = 0;                                    // 소문자 영어 연속이 끊겼으므로 영어 연속 카운트 초기화
+            if (countnum>maxnum) maxnum = countnum;          // 연속 숫자 수가 현재 숫자 연속 최댓값보다 크면 갱신
         }
         
-        i++;
+        i++;            // 실행 횟수 1 증가
     }
     
-    printf("%d\n", maxeng);
-    printf("%d", maxnum);
+    printf("%d\n", maxeng);  // 연속된 소문자 영어의 최대 개수 출력
+    printf("%d", maxnum);    // 연속된 숫자의 최대 개수 출력
     
     return 0;
 }
